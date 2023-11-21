@@ -1,37 +1,72 @@
-// Passo 1: chiedere all'utente il numero di km da percorrere
-// Passo 2: chiedere l'età del passeggero
-// Passo 3: clacolare il prezzo totale del biglietto tenendo presente:
-// prezzo biglietto (0.21 £ al km) - 20% di sconto ai minorenni - 40% di sconto per gli over 65
+// ----------------------- OUR TEAM -------------------------------
 
-let km = prompt("Inserisci il numero di km da percorrere");
-let age = prompt("Inserisci la tua età");
+let ourTeam = [
+    {
+        name : "Wayne",
+        surname : "Barnett",
+        role : "Founder & CEO",
+        image : "wayne-barnett-founder-ceo.jpg"
+    },
+    {
+        name : "Angela",
+        surname : "Caroll",
+        role : "Chief Editor",
+        image : "angela-caroll-chief-editor.jpg"
+    },
+    {
+        name : "Walter",
+        surname : "Gordon",
+        role : "Office Menager",
+        image : "walter-gordon-office-menager.jpg"
+    },
+    {
+        name : "Angela",
+        surname : "Lopez",
+        role : "Social Media Menager",
+        image : "angela-lopez-social-media-menager.jpg"
+    },
+    {
+        name : "Scott",
+        surname : "Estrada",
+        role : "Developer",
+        image : "scott-estrada-developer.jpg"
+    },
+    {
+        name : "Barbara",
+        surname : "Ramos",
+        role : "Graphic Designer",
+        image : "barbara-ramos-graphic-designer.jpg"
+    }
 
-km = parseFloat(km);
-age = parseInt(age);
+];
 
-// costo biglietto
-let priceTicket = km * 0.21;
-let prezzoPercentuale;
+printArrayTeam(ourTeam);
 
-console.log(priceTicket);
 
-// sconto del 20% se è minorenne
-if(age < 18)  {
-prezzoPercentuale = (priceTicket * 20) / 100;
-console.log(prezzoPercentuale);
-priceTicket = priceTicket - prezzoPercentuale;
+// ----------------- FUNZIONI -------------------------------
 
-// sconto del 40% se è over 65
-} else if(age >= 65) {
-    prezzoPercentuale = (priceTicket * 40) / 100;
-    console.log(prezzoPercentuale);
-    priceTicket = priceTicket - prezzoPercentuale;
-    
-} 
+function printObject(object) {
+    let string = "";
 
-// mostra massimo due decimali al risultato
-priceTicket = priceTicket.toFixed(2);
-console.log(priceTicket);
+    string += "{\n";
 
-alert("Il prezzo del tuo biglietto è di " + priceTicket + " " + "euro");
+    for (let key in object) {
+        string += "\t " + key + ": " + object[key] + "\n";
+    }
 
+    string += "}";
+
+    console.log(string);
+
+}
+
+
+function printArrayTeam(arrayTeam) {
+    for (let i = 0; i < arrayTeam.length; i++) {
+
+        let member = arrayTeam[i];
+
+        console.log("Il membro n° " + (i + 1) + " è:");
+        printObject(member);
+    }
+}
